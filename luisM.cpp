@@ -143,7 +143,7 @@ void createAsteroid(Game *g, Global gl)
 
 	(*g).nasteroids++;
 }
-
+void pewPew();
 void createBullet(Game *g, Global gl, Object object)
 {
 	struct timespec bt;
@@ -157,6 +157,7 @@ void createBullet(Game *g, Global gl, Object object)
 			Flt xdir;
 			Flt ydir;
 			Bullet *b;
+			pewPew();
 			switch(object.powerLevel)
 			{
 			case 1:

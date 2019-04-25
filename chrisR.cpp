@@ -2,6 +2,7 @@
 //Author:  Christopher Ramirez
 //Date:    2019
 //Modified: March 9, 12:01 PM
+/*
 #include <GL/glx.h>
 #include <cstdlib>
 #include "fonts.h"
@@ -14,6 +15,8 @@
 #ifdef USE_OPENAL_SOUND
 #include </usr/include/AL/alut.h>
 #endif
+*/
+#include "classes.h"
 void showChrisRamirez(int x, int y, GLuint textid)
 {
 	Rect r;
@@ -54,19 +57,21 @@ public:
         }
         //Clear error state
         alGetError();
-        //
+
         //Setup Listener
         //Forward and Upward vectors are used
         float vec[6] = {0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f};
         alListener3f(AL_POSITION, 0.0f, 0.0f, 0.0f);
         alListenerfv(AL_ORIENTATION, vec);
         alListenerf(AL_GAIN, 1.0f);
-        //
+
         //Setup Buffer: holds the sound information
         alBuffer[0] = alutCreateBufferFromFile("./bullet_fire.wav");
+
         //Generate a source, store it in a buffer
         alGenSources(1, alSource);
         alSourcei(alSource[0], AL_BUFFER, alBuffer[0]);
+
         //Set Volume and Pitch to normal
         //No Looping of Sound
         alSourcef(alSource[0], AL_GAIN, 0.1f);
